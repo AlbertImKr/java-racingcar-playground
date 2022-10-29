@@ -3,6 +3,11 @@ package car_game;
 public class Car {
 
 	private String name;
+	private int position;
+
+	public void setPosition(int position) {
+		this.position = position;
+	}
 
 	public void setName(String name) {
 		if (name.length() > 5) {
@@ -13,5 +18,11 @@ public class Car {
 
 	public String getName() {
 		return name;
+	}
+
+	@Override
+	public String toString() {
+		String str = "-".repeat(position);
+		return name + " : " + str;
 	}
 }

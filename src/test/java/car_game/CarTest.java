@@ -22,8 +22,15 @@ public class CarTest {
 
 	@Test
 	void car_set_name(){
-		Car car = new Car();
 		car.setName("janko");
 		assertThat(car.getName()).isEqualTo("janko");
 	}
+
+	@Test
+	void car_toString(){
+		car.setPosition(3);
+		car.setName("janko");
+		assertThat(car.toString()).isEqualTo("janko : ---");
+	}
+
 }
