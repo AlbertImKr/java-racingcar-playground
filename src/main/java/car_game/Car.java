@@ -9,6 +9,10 @@ public class Car {
 		this.position = position;
 	}
 
+	public int getPosition() {
+		return position;
+	}
+
 	public void setName(String name) {
 		if (name.length() > 5) {
 			throw new IllegalArgumentException("자동차 이름은 5자를 초과할 없다.");
@@ -24,5 +28,11 @@ public class Car {
 	public String toString() {
 		String str = "-".repeat(position);
 		return name + " : " + str;
+	}
+
+	public void go(int n) {
+		if (n > 4) {
+			position++;
+		}
 	}
 }

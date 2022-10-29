@@ -33,4 +33,15 @@ public class CarTest {
 		assertThat(car.toString()).isEqualTo("janko : ---");
 	}
 
+
+	@Test
+	void car_go(){
+		car.setPosition(3);
+		car.go(5);
+		assertThat(car.getPosition()).isEqualTo(4);
+
+		car.setPosition(3);
+		car.go(4);
+		assertThat(car.getPosition()).isEqualTo(3);
+	}
 }
