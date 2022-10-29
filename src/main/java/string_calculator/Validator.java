@@ -8,14 +8,14 @@ public class Validator {
 		}
 	}
 
-	private static void validate(String string) {
+	private void validate(String string) {
 		for (Character c : string.toCharArray()) {
 			boolean digit = Character.isDigit(c);
 			validate(digit);
 		}
 	}
 
-	private static void validate(boolean digit) {
+	private void validate(boolean digit) {
 		if (!digit) {
 			throw new RuntimeException();
 		}
