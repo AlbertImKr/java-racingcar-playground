@@ -2,12 +2,12 @@ package base_ball_game;
 
 import java.util.Objects;
 
-public class Car {
+public class Car implements Comparable<Car> {
 	private CarPosition carPosition;
-	private CarName carName;
+	private final CarName carName;
 
 	public Car(String carName) {
-		this(0,carName);
+		this(0, carName);
 	}
 
 	public Car(int carPosition, String carName) {
@@ -15,12 +15,23 @@ public class Car {
 		this.carName = new CarName(carName);
 	}
 
-	public boolean canMove(int RandomNum) {
-		return RandomNum > 4;
+	public boolean canMove(int randomNum) {
+		return randomNum > 4;
 	}
 
 	public void move() {
 		carPosition = carPosition.move();
+	}
+
+	public void move(int randomNum) {
+		if (canMove(randomNum)) {
+			move();
+		}
+	}
+
+	@Override
+	public int compareTo(Car o) {
+		return carPosition.compareTo(o.carPosition);
 	}
 
 	@Override
@@ -36,5 +47,22 @@ public class Car {
 	@Override
 	public int hashCode() {
 		return Objects.hash(carPosition, carName);
+	}
+
+	public boolean isSamePosition(Car car) {
+		return car.isSamePosition(carPosition);
+	}
+
+	private boolean isSamePosition(CarPosition otherCarPosition) {
+		return carPosition.equals(otherCarPosition);
+	}
+
+	@Override
+	public String toString() {
+		return carName.toString()+" : "+carPosition.toString()+"\n";
+	}
+
+	public String getWinnerName() {
+		return carName.toString();
 	}
 }

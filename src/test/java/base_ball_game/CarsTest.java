@@ -2,6 +2,8 @@ package base_ball_game;
 
 import static org.assertj.core.api.Assertions.*;
 
+import java.util.List;
+
 import org.junit.jupiter.api.Test;
 
 public class CarsTest {
@@ -11,15 +13,22 @@ public class CarsTest {
 		Cars cars = new Cars("pobi,crong,honux");
 		assertThat(cars.containCar(new Car("pobi"))).isTrue();
 		assertThat(cars.containCar(new Car("crong"))).isTrue();
-		assertThat(cars.containCar(new Car("nohux"))).isTrue();
+		assertThat(cars.containCar(new Car("honux"))).isTrue();
 	}
 
+
 	@Test
-	void move() {
-		Cars cars = new Cars("pobi,crong,honux");
-		cars.move();
-		assertThat(cars.containCar(new Car(1,"pobi"))).isTrue();
-		assertThat(cars.containCar(new Car(1,"crong"))).isTrue();
-		assertThat(cars.containCar(new Car(1,"honux"))).isTrue();
+	void get_winner(){
+		Car pobiCar = new Car(2, "pobi");
+		Car crongCar = new Car(3, "crong");
+		Car honuxCar = new Car(4, "honux");
+		List<Car> carList = List.of(pobiCar, crongCar, honuxCar);
+		Cars cars = new Cars(carList);
+		Car maxCar = cars.getMaxCar();
+		assertThat(maxCar).isEqualTo(honuxCar);
+		assertThat(cars.getWinner(maxCar)).isEqualTo(new Cars(List.of(honuxCar)));
+
+		crongCar.move();
+		assertThat(cars.getWinner(maxCar)).isEqualTo(new Cars(List.of(crongCar,honuxCar)));
 	}
 }

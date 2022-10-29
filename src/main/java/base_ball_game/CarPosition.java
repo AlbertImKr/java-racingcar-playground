@@ -2,7 +2,7 @@ package base_ball_game;
 
 import java.util.Objects;
 
-public class CarPosition {
+public class CarPosition implements Comparable<CarPosition>{
 
 	private final int carPosition;
 
@@ -12,6 +12,11 @@ public class CarPosition {
 
 	public CarPosition move() {
 		return new CarPosition(carPosition + 1);
+	}
+
+	@Override
+	public int compareTo(CarPosition o) {
+		return carPosition-o.carPosition;
 	}
 
 	@Override
@@ -27,5 +32,10 @@ public class CarPosition {
 	@Override
 	public int hashCode() {
 		return Objects.hash(carPosition);
+	}
+
+	@Override
+	public String toString() {
+		return "-".repeat(carPosition);
 	}
 }
