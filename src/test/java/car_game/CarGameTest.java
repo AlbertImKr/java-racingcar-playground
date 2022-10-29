@@ -16,4 +16,5 @@ public class CarGameTest {
 		assertThat(carNameList.get(1)).isEqualTo("crong");
 		assertThat(carNameList.get(2)).isEqualTo("honux");
 	}
+
 }

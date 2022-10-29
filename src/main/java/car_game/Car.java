@@ -1,9 +1,17 @@
 package car_game;
 
+import java.util.Random;
+
 public class Car {
 
-	private String name;
+	private final CarNumber carName;
 	private int position;
+	private final Random random = new Random();
+
+	public Car(String name) {
+		this.carName = new CarNumber(name);
+		this.position = 0;
+	}
 
 	public void setPosition(int position) {
 		this.position = position;
@@ -14,24 +22,26 @@ public class Car {
 	}
 
 	public void setName(String name) {
-		if (name.length() > 5) {
-			throw new IllegalArgumentException("자동차 이름은 5자를 초과할 없다.");
-		}
-		this.name = name;
+		carName.setCarName(name);
 	}
 
 	public String getName() {
-		return name;
+		return carName.getCarName();
 	}
 
 	@Override
 	public String toString() {
 		String str = "-".repeat(position);
-		return name + " : " + str;
+		return carName.getCarName() + " : " + str;
 	}
 
-	public void go(int n) {
-		if (n > 4) {
+	public void go() {
+		int randomValue = random.nextInt(9);
+		go(randomValue);
+	}
+
+	public void go(int randomValue) {
+		if (randomValue > 4) {
 			position++;
 		}
 	}
