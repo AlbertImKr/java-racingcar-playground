@@ -4,7 +4,11 @@ import java.util.Objects;
 
 public class Car {
 	private CarPosition carPosition;
-	private final CarName carName;
+	private CarName carName;
+
+	public Car(String carName) {
+		this(0,carName);
+	}
 
 	public Car(int carPosition, String carName) {
 		this.carPosition = new CarPosition(carPosition);
