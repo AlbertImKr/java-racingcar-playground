@@ -42,6 +42,14 @@ public class Cars {
 			.orElse(null);
 	}
 
+	public String getWinnerName() {
+		StringBuilder answer = new StringBuilder();
+		for (Car car : carList) {
+			answer.append(car.getWinnerName()).append(",");
+		}
+		return answer.deleteCharAt(answer.length() - 1).toString();
+	}
+
 	@Override
 	public boolean equals(Object o) {
 		if (this == o)
@@ -66,11 +74,4 @@ public class Cars {
 		return result.toString();
 	}
 
-	public String getWinnerName() {
-		StringBuilder answer = new StringBuilder();
-		for (Car car : carList) {
-			answer.append(car.getWinnerName()).append(",");
-		}
-		return answer.deleteCharAt(answer.length() - 1).toString();
-	}
 }

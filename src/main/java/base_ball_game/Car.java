@@ -29,6 +29,18 @@ public class Car implements Comparable<Car> {
 		}
 	}
 
+	public String getWinnerName() {
+		return carName.toString();
+	}
+
+	public boolean isSamePosition(Car car) {
+		return car.isSamePosition(carPosition);
+	}
+
+	private boolean isSamePosition(CarPosition otherCarPosition) {
+		return carPosition.equals(otherCarPosition);
+	}
+
 	@Override
 	public int compareTo(Car o) {
 		return carPosition.compareTo(o.carPosition);
@@ -49,20 +61,8 @@ public class Car implements Comparable<Car> {
 		return Objects.hash(carPosition, carName);
 	}
 
-	public boolean isSamePosition(Car car) {
-		return car.isSamePosition(carPosition);
-	}
-
-	private boolean isSamePosition(CarPosition otherCarPosition) {
-		return carPosition.equals(otherCarPosition);
-	}
-
 	@Override
 	public String toString() {
-		return carName.toString()+" : "+carPosition.toString()+"\n";
-	}
-
-	public String getWinnerName() {
-		return carName.toString();
+		return carName.toString() + " : " + carPosition.toString() + "\n";
 	}
 }

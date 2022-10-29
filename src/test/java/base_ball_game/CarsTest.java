@@ -16,9 +16,8 @@ public class CarsTest {
 		assertThat(cars.containCar(new Car("honux"))).isTrue();
 	}
 
-
 	@Test
-	void get_winner(){
+	void get_winner() {
 		Car pobiCar = new Car(2, "pobi");
 		Car crongCar = new Car(3, "crong");
 		Car honuxCar = new Car(4, "honux");
@@ -29,6 +28,6 @@ public class CarsTest {
 		assertThat(cars.getWinner(maxCar)).isEqualTo(new Cars(List.of(honuxCar)));
 
 		crongCar.move();
-		assertThat(cars.getWinner(maxCar)).isEqualTo(new Cars(List.of(crongCar,honuxCar)));
+		assertThat(cars.getWinner(maxCar)).isEqualTo(new Cars(List.of(crongCar, honuxCar)));
 	}
 }

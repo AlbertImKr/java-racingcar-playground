@@ -2,7 +2,7 @@ package base_ball_game;
 
 import java.util.Objects;
 
-public class CarPosition implements Comparable<CarPosition>{
+public class CarPosition implements Comparable<CarPosition> {
 
 	private final int carPosition;
 
@@ -16,7 +16,7 @@ public class CarPosition implements Comparable<CarPosition>{
 
 	@Override
 	public int compareTo(CarPosition o) {
-		return carPosition-o.carPosition;
+		return carPosition - o.carPosition;
 	}
 
 	@Override
